@@ -13,7 +13,8 @@ document.getElementById("encrypt").addEventListener("click", () => {
 
     // Call the encryptText function from crypto.js with the text parameter
 
-    encryptText(text);
+    document.getElementById("message2").value = encryptText(text).encryptedText;
+    document.getElementById("key1").value =encryptText(text).keyA;
 });
 
 // Add event listener to the Decrypt button
@@ -32,8 +33,8 @@ document.getElementById("decrypt").addEventListener("click", () => {
     if (keyA === keyB) {
 
         // Call the decryptText function from crypto.js with the encrypted text parameter
-
-        decryptText(encryptedText);
+        document.getElementById("message2").value =decryptText(encryptedText);
+        
     } else {
 
         console.log("KeyA and KeyB are not equal. Cannot decrypt.");
