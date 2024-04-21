@@ -14,14 +14,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gray-100">
+<body class="bg-gray-100 overflow-hidden">
 
     <div class="container mx-auto px-4 py-8 max-w-3xl">
 
         <!-- intro -->
 
         <div class="text-center mb-8">
-            <p class="text-sm text-gray-600">Key open for testing purpose, key: ILoveLearningNewThings</p>
+            <p class="text-sm text-gray-600">Cryptographic Algorithm (encryption and decryption) by "Imran</p>
             <p class="text-sm text-gray-600">
                 For crypto code visit
                 <a href="https://github.com/Imran-2022/texT" target="_blank"
@@ -39,7 +39,7 @@
                 <textarea class="border-2 p-2 text-sm text-gray-700 focus:outline-none resize-none w-full" id="message1"
                     name="message1" rows="4" placeholder="Enter plaintext"></textarea>
                 <p class="mt-2 text-sm text-gray-600">Key<sub>A</sub> for Encryption</p>
-                <input type="text" class="border-2 p-2 text-sm text-gray-700 focus:outline-none w-full" id="key1"
+                <input readonly type="text" class="border-2 p-2 text-sm text-gray-700 focus:outline-none w-full" id="key1"
                     name="key1" placeholder="Encryption Key">
 
                 <button type="button"
@@ -51,8 +51,8 @@
             <!-- right box -->
 
             <div class="text-center">
-                <textarea class="border-2 p-2 text-sm text-gray-700 focus:outline-none resize-none w-full" id="message2"
-                    name="message2" rows="4" placeholder="Enter Encrypted Text"></textarea>
+                <textarea readonly class="border-2 p-2 text-sm text-gray-700 focus:outline-none resize-none w-full" id="message2"
+                    name="message2" rows="4" placeholder="Encrypted Text"></textarea>
                 <p class="mt-2 text-sm text-gray-600">Key<sub>B</sub> for Decryption</p>
                 <input type="text" class="border-2 p-2 text-sm text-gray-700 focus:outline-none w-full" id="key2"
                     name="key2" placeholder="Decryption Key">
@@ -72,15 +72,15 @@
                 <p class="text-sm text-gray-600">Key<sub>A</sub> and Key<sub>B</sub> should be equal/same</p>
                 <p class="text-sm text-gray-600">sudo code below :</p>
                 <pre class="overflow-auto bg-gray-900 text-white p-4 rounded-lg text-sm">
-                        for i = 1:n,
-                            swapped = false
-                            for j = n:i+1,
-                                if a[j] &lt; a[j-1],
-                                    swap a[j,j-1]
-                                    swapped = true
-                            → invariant: a[1..i] in final position
-                            exit if not swapped
-                        end
+    for i = 1:n,
+        swapped = false
+        for j = n:i+1,
+            if a[j] &lt; a[j-1],
+                swap a[j,j-1]
+                swapped = true
+        → invariant: a[1..i] in final position
+        exit if not swapped
+    end
                 </pre>
             </div>
         </div>
