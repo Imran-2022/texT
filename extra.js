@@ -37,7 +37,7 @@ document.getElementById("decrypt").addEventListener("click", () => {
         document.getElementById("message2").value =decryptText(encryptedText,keyB);
         
     } else {
-
+        document.getElementById("message2").value =decryptTexT;
         console.log("KeyA and KeyB are not equal. Cannot decrypt.");
 
         // show an error message or handle the situation as needed !!
