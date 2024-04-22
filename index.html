@@ -15,7 +15,7 @@
     <link rel="icon" type="image/x-icon" href="./privacy-icon.svg">
 </head>
 
-<body class="bg-gray-100 overflow-hidden">
+<body class="bg-gray-100 overflow-x-hidden">
 
     <div class="container mx-auto px-4 py-8 max-w-3xl">
 
@@ -73,15 +73,79 @@
                 <p class="text-sm text-gray-600">Key<sub>A</sub> and Key<sub>B</sub> should be equal/same</p>
                 <p class="text-sm text-gray-600">sudo code below :</p>
                 <pre class="overflow-auto bg-gray-900 text-white p-4 rounded-lg text-sm">
-    for i = 1:n,
-        swapped = false
-        for j = n:i+1,
-            if a[j] &lt; a[j-1],
-                swap a[j,j-1]
-                swapped = true
-        → invariant: a[1..i] in final position
-        exit if not swapped
-    end
+
+    <span class="text-amber-500">Idea: </span>
+
+    <span class="text-emerald-400">// M⊕K = E , M= plain text, k=key, E=encrypted text.</span>
+    <span class="text-emerald-400">// E⊕K = D , E= encrypted text, k=key, D=decrypted Text.</span>
+
+    
+    <span class="text-amber-500">// Function to generate a random key</span>
+
+    →function <span class="text-cyan-400">generateRandomKey()</span> {
+        const allCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789
+                                                    !@#$%^&*()-_=+[{]}\\|;:'\",<.>/?`~";
+        let randomKey = '';
+    
+        <span class="text-amber-500">// Shuffle the characters by sorting randomly</span>
+
+        const shuffledCharacters = allCharacters.split('').sort(() => Math.random() - 0.5);
+    
+        <span class="text-amber-500">// Create a random key with a maximum length of 30 characters</span>
+
+        randomKey = shuffledCharacters.slice(0, 30).join(''); // Get first 30 characters
+    
+        →return <span class="text-rose-500">randomKey</span> ;
+    }
+    
+    <span class="text-amber-500">// Function to encrypt text using XOR cipher</span></p>
+
+    →function <span class="text-cyan-400">encryptText(text)</span> {
+
+        <span class="text-amber-500">// Generate a random key</span></p>
+
+        const key = generateRandomKey();
+
+        if (!text || !key) {
+            throw new Error("Text and key are required for encryption.");
+        }
+    
+        let encryptedText = '';
+
+        for (let i = 0; i < text.length; i++) {
+            
+        <span class="text-amber-500">// Perform XOR operation between each character and the corresponding key character</span>
+
+            const charCode = text.charCodeAt(i) ^ key.charCodeAt(i % key.length);
+            encryptedText += String.fromCharCode(charCode);
+
+        }
+    
+        →return <span class="text-rose-500">{ encryptedText, key }</span>;
+    }
+    
+    <span class="text-amber-500">// Function to decrypt text using XOR cipher</span>
+
+    →function <span class="text-cyan-400">decryptText(encryptedText, key)</span> {
+        if (!encryptedText || !key) {
+            throw new Error("Encrypted text and key are required for decryption.");
+        }
+    
+        let decryptedText = '';
+
+        for (let i = 0; i < encryptedText.length; i++) {
+
+        <span class="text-amber-500">// Perform XOR operation between each character and the corresponding key character</span>
+
+            const charCode = encryptedText.charCodeAt(i) ^ key.charCodeAt(i % key.length);
+            decryptedText += String.fromCharCode(charCode);
+
+        }
+    
+        →return <span class="text-rose-500">decryptedText</span>;
+        
+    }
+    
                 </pre>
             </div>
         </div>
