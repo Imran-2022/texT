@@ -1,7 +1,7 @@
 // Define text variable globally to access it in other scripts
 
 var text = "";
-
+var decryptTexT="";
 // Add event listener to the Encrypt button
 
 document.getElementById("encrypt").addEventListener("click", () => {
@@ -14,6 +14,7 @@ document.getElementById("encrypt").addEventListener("click", () => {
     const {encryptedText,keyA}=encryptText(text);
 
     document.getElementById("message2").value = encryptedText;
+    decryptTexT=encryptedText;
     document.getElementById("key1").value =keyA;
 });
 
@@ -23,7 +24,7 @@ document.getElementById("decrypt").addEventListener("click", () => {
 
     // Get the encrypted text from the second textarea
 
-    var encryptedText = document.getElementById("message2").value;
+    var encryptedText = decryptTexT;
 
     // Get KeyA and KeyB values
     var keyA = document.getElementById("key1").value;
