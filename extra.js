@@ -2,7 +2,6 @@
 
 var text = "";
 
-
 // Add event listener to the Encrypt button
 
 document.getElementById("encrypt").addEventListener("click", () => {
@@ -12,9 +11,10 @@ document.getElementById("encrypt").addEventListener("click", () => {
     text = document.getElementById("message1").value;
 
     // Call the encryptText function from crypto.js with the text parameter
+    const {encryptedText,keyA}=encryptText(text);
 
-    document.getElementById("message2").value = encryptText(text).encryptedText;
-    document.getElementById("key1").value =encryptText(text).keyA;
+    document.getElementById("message2").value = encryptedText;
+    document.getElementById("key1").value =keyA;
 });
 
 // Add event listener to the Decrypt button
@@ -33,7 +33,7 @@ document.getElementById("decrypt").addEventListener("click", () => {
     if (keyA === keyB) {
 
         // Call the decryptText function from crypto.js with the encrypted text parameter
-        document.getElementById("message2").value =decryptText(encryptedText);
+        document.getElementById("message2").value =decryptText(encryptedText,keyB);
         
     } else {
 
